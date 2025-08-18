@@ -2,7 +2,7 @@
 
 # 🎓 ỨNG DỤNG NHẬN DIỆN CỬ CHỈ TAY HỖ TRỢ GIAO TIẾP CHO NGƯỜI KHUYẾT TẬT  
 
-<img src="anh/logo.jpg" alt="Logo" width="200"/>
+<img src="anh/logo.jpg" alt="Logo" width="500"/>
 
 ---
 
