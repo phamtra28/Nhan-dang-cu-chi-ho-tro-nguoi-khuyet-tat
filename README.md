@@ -54,23 +54,13 @@ Quy trình hoạt động của hệ thống nhận dạng cử chỉ tay đư�
 
 ## 📊 Kết quả thử nghiệm  
 
-<img src="anh/KQ.jpg" alt="Kết quả thử nghiệm" width="700"/>
+<img src="anh/KQ.jpg" alt="Kết quả thử nghiệm" width="800"/>
 
-- Hệ thống đã nhận diện được cử chỉ tay và đưa ra nhãn dự đoán tương ứng, ví dụ như
-cử chỉ “BÁNH TRÁNG”.
-- Cùng với nhãn dự đoán, hệ thống cung cấp thêm giá trị độ tin cậy (confidence score).
-Trong ví dụ trên, độ tin cậy đạt 0.10, cho thấy mô hình vẫn còn hạn chế trong việc
-phân biệt rõ ràng các cử chỉ có hình dạng tương tự nhau hoặc khi điều kiện môi trường
-chưa tối ưu.
-- Ảnh minh họa cho thấy toàn bộ các keypoints (các điểm đặc trưng trên khuôn mặt và
-bàn tay) được phát hiện và hiển thị trực tiếp. Đây là cơ sở để mô hình phân tích và
-đưa ra kết quả dự đoán.
-- Kết quả thử nghiệm cũng chứng minh rằng hệ thống hoạt động theo thời gian thực:
-ngay khi người dùng thực hiện cử chỉ trước camera, kết quả nhận dạng và độ tin cậy
-được hiển thị ngay lập tức trên màn hình.
-- Mặc dù trong một số trường hợp độ chính xác còn thấp, nhưng hệ thống đã chứng
-minh khả năng hoạt động ổn định, có tiềm năng cải thiện thêm khi mở rộng dữ liệu
-huấn luyện và tối ưu kiến trúc mô hình.
+- Hệ thống đã nhận diện được cử chỉ tay và đưa ra nhãn dự đoán tương ứng, ví dụ như cử chỉ “BÁNH TRÁNG”.
+- Cùng với nhãn dự đoán, hệ thống cung cấp thêm giá trị độ tin cậy (confidence score). Trong ví dụ trên, độ tin cậy đạt 0.10, cho thấy mô hình vẫn còn hạn chế trong việc phân biệt rõ ràng các cử chỉ có hình dạng tương tự nhau hoặc khi điều kiện môi trường chưa tối ưu.
+- Ảnh minh họa cho thấy toàn bộ các keypoints (các điểm đặc trưng trên khuôn mặt và bàn tay) được phát hiện và hiển thị trực tiếp. Đây là cơ sở để mô hình phân tích và đưa ra kết quả dự đoán.
+- Kết quả thử nghiệm cũng chứng minh rằng hệ thống hoạt động theo thời gian thực: ngay khi người dùng thực hiện cử chỉ trước camera, kết quả nhận dạng và độ tin cậy được hiển thị ngay lập tức trên màn hình.
+- Mặc dù trong một số trường hợp độ chính xác còn thấp, nhưng hệ thống đã chứng minh khả năng hoạt động ổn định, có tiềm năng cải thiện thêm khi mở rộng dữ liệu huấn luyện và tối ưu kiến trúc mô hình.
 
 ---
 
@@ -95,7 +85,7 @@ huấn luyện và tối ưu kiến trúc mô hình.
 
 <div align="center">
 
-📝  © 2025 – Phạm Văn Trà, Nhóm 12 - CNTT 17-05, Khoa Công nghệ Thông tin, Trường Đại học Đại Nam.  
+📝  © Phạm Văn Trà, Nhóm 12 - CNTT 17-05, Khoa Công nghệ Thông tin, Trường Đại học Đại Nam.  
 👩‍🏫 **GV hướng dẫn**: Lê Trung Hiếu, Nguyễn Thái Khánh  
 
 </div>
