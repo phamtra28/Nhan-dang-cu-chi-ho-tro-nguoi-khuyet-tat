@@ -22,19 +22,24 @@ Người khiếm thính và khiếm ngôn gặp rất nhiều khó khăn trong q
 
 ## 🏗️ Kiến trúc hệ thống  
 
-Hệ thống được xây dựng với kiến trúc nhiều tầng, đảm bảo quá trình xử lý dữ liệu nhanh chóng và chính xác:  
+Quy trình hoạt động của hệ thống nhận dạng cử chỉ tay được triển khai qua các bước sau:  
 
-1. **📹 Tầng xử lý đầu vào**: Dữ liệu được thu từ camera hoặc video. Hệ thống sử dụng **MediaPipe Holistic** để trích xuất **1662 điểm đặc trưng (keypoints)** từ cơ thể, khuôn mặt và bàn tay.  
-2. **🧠 Tầng mô hình học sâu**: Các keypoints từ chuỗi **30 khung hình liên tiếp** được đưa vào **mạng LSTM ba lớp** (128 → 256 → 128 neurons). Sau đó, dữ liệu đi qua lớp **Dense 64 neurons** trước khi ra lớp **Softmax**, trả về nhãn dự đoán tương ứng.  
-3. **🔊 Tầng đầu ra**: Hệ thống hiển thị nhãn dự đoán trực tiếp trên màn hình kèm theo **độ tin cậy (confidence score)**. Nếu vượt ngưỡng 0.8 trong ≥ 1 giây, kết quả được phát ra bằng âm thanh để hỗ trợ giao tiếp.  
+1. **Thu thập dữ liệu**: Sử dụng tập dữ liệu **QiPedC**.  
+2. **Trích xuất keypoints**: Áp dụng **MediaPipe Holistic** để lấy ra **1662 điểm đặc trưng** (pose, face, hands).  
+3. **Tiền xử lý dữ liệu**: Chuẩn hóa, padding chuỗi 30 khung hình và lưu dưới dạng **`.npy`**.  
+4. **Huấn luyện mô hình**: Sử dụng mạng **LSTM nhiều lớp (128 → 256 → 128)**, sau đó thêm lớp **Dense 64** và **Softmax** để phân loại cử chỉ.  
+5. **Dự đoán thời gian thực**: Lấy dữ liệu trực tiếp từ camera, xử lý theo chuỗi 30 khung hình.  
+6. **Hiển thị kết quả**: Xuất ra **nhãn cử chỉ** kèm **độ tin cậy (confidence score)** ngay trên giao diện.  
 
 ---
 
 ## ✨ Tính năng chính  
 
-- **Nhận diện thời gian thực** với tốc độ trung bình 20–30 FPS.  
-- **Mô hình LSTM** đạt độ chính xác **85–90%** trên tập dữ liệu thử nghiệm.  
-- **Phát hiện và hiển thị keypoints trực tiếp** trên giao diện, giúp trực quan hóa cách hệ thống xử lý dữ liệu.  
+- **Nhận diện cử chỉ tay thời gian thực** trực tiếp từ camera với tốc độ trung bình 20–30 FPS.  
+- **Trích xuất keypoints tự động** bằng MediaPipe Holistic, gồm 1662 điểm đặc trưng từ khuôn mặt, bàn tay và dáng người.  
+- **Huấn luyện và dự đoán bằng LSTM** nhiều lớp, đảm bảo khả năng học chuỗi động tác và phân loại chính xác cử chỉ.  
+- **Hiển thị kết quả trực quan** ngay trên giao diện: gồm nhãn cử chỉ và độ tin cậy (confidence score).  
+- **Khả năng mở rộng**: Dễ dàng bổ sung thêm hành động mới bằng cách thu thập dữ liệu và huấn luyện lại mô hình.  
 
 ---
 
@@ -52,7 +57,7 @@ Hệ thống được xây dựng với kiến trúc nhiều tầng, đảm bả
 - **Độ chính xác**: trung bình đạt **90%** trên tập kiểm tra.  
 - **Thời gian suy luận**: khoảng **30ms mỗi khung hình**, đủ nhanh cho nhận diện thời gian thực.  
 - **Tốc độ hoạt động**: duy trì **20–33 FPS** trên webcam chuẩn 1280x720.  
-- **Các lỗi thường gặp**: nhầm lẫn giữa cử chỉ tương tự (ví dụ: *“xin chào”* và *“cảm ơn”*), hoặc khi ánh sáng yếu.  
+- **Các lỗi thường gặp**: nhầm lẫn giữa cử chỉ tương tự, hoặc khi ánh sáng yếu.  
 - **Nhận xét**: hệ thống đã chứng minh tính khả thi và có tiềm năng triển khai thực tế để hỗ trợ cộng đồng người khuyết tật.  
 
 ---
