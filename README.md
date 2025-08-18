@@ -2,8 +2,7 @@
 
 # 🎓 ỨNG DỤNG NHẬN DIỆN CỬ CHỈ TAY HỖ TRỢ GIAO TIẾP CHO NGƯỜI KHUYẾT TẬT  
 
-<img src="images/logo.png" alt="Logo Đại học Đại Nam" width="200"/>
-<img src="images/AIoTLab_logo.png" alt="Logo AIoTLab" width="170"/>
+<img src="anh/logo.png" alt="Logo" width="200"/>
 
 ---
 
