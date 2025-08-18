@@ -42,7 +42,7 @@ Hệ thống được xây dựng với kiến trúc nhiều tầng, đảm bả
 
 - [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=yellow)](https://www.python.org/)  
 - [![Mediapipe](https://img.shields.io/badge/Mediapipe-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://mediapipe.dev/)  
-- [![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)  
+- [![LSTM](https://img.shields.io/badge/LSTM-FF6F00?style=for-the-badge&logo=keras&logoColor=white)](https://en.wikipedia.org/wiki/Long_short-term_memory)  
 - [![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)  
 
 ---
