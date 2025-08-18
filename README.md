@@ -1,71 +1,39 @@
 <div align="center">
 
-# 🎓 ỨNG DỤNG NHẬN DIỆN CỬ CHỈ TAY HỖ TRỢ <br> GIAO TIẾP CHO NGƯỜI KHUYẾT TẬT
+# 🎓 ỨNG DỤNG NHẬN DIỆN CỬ CHỈ TAY HỖ TRỢ GIAO TIẾP CHO NGƯỜI KHUYẾT TẬT  
+
+<img src="images/logo.png" alt="Logo Đại học Đại Nam" width="200"/>
+<img src="images/AIoTLab_logo.png" alt="Logo AIoTLab" width="170"/>
+
+---
+
+### 🔬 Công nghệ AI hỗ trợ giao tiếp cho người khuyết tật qua nhận dạng cử chỉ tay  
+
+**Hệ thống nhận diện cử chỉ tay tiếng Việt thời gian thực sử dụng Mediapipe và LSTM**  
 
 </div>
+
+---
+
+Hệ thống được thiết kế với **kiến trúc ba tầng**: (1) thu video từ webcam và trích xuất 1662 điểm đặc trưng bằng *MediaPipe Holistic*; (2) xử lý chuỗi 30 khung hình liên tiếp bằng *mạng LSTM nhiều lớp*; (3) hiển thị nhãn dự đoán và độ tin cậy, đồng thời phát âm thanh hỗ trợ giao tiếp.  
+
+Hệ thống có khả năng **nhận diện thời gian thực** với tốc độ 20–30 FPS, độ chính xác trung bình 85–90% trên tập kiểm tra, và hỗ trợ **10 cử chỉ tiếng Việt**: “null”, “xin chào”, “cảm ơn”, “xin lỗi”, “tạm biệt”, “hạnh phúc”, “tuyệt vời”, “yêu thương”, “biết ơn”, “ghét”.  
+
+Quy trình triển khai bao gồm các bước:  
+- **Thu thập dữ liệu** từ camera và lưu keypoints dưới dạng `.npy`.  
+- **Xử lý và chia tập dữ liệu** thành train/validation/test.  
+- **Huấn luyện mô hình LSTM** và lưu phiên bản tốt nhất dưới dạng `best_model.keras`.  
+- **Dự đoán thời gian thực** với webcam, hiển thị nhãn dự đoán và phát âm thanh khi độ tin cậy vượt ngưỡng 0.8.  
+
+Kết quả thử nghiệm cho thấy hệ thống hoạt động ổn định, có thể phân biệt các cử chỉ cơ bản và phản hồi ngay lập tức. Tuy nhiên, vẫn tồn tại hạn chế khi điều kiện ánh sáng không tốt hoặc khi các cử chỉ có hình dạng tương tự nhau, dẫn đến nhầm lẫn (ví dụ: “xin chào” ↔ “cảm ơn”).  
+
+Trong tương lai, hệ thống có thể được **mở rộng bộ dữ liệu**, **đa dạng hóa điều kiện thu thập**, và **tối ưu mô hình** (pruning, quantization) để triển khai trên các thiết bị cấu hình thấp. Ngoài ra, có thể tích hợp thêm **giọng nói tự nhiên** nhằm nâng cao trải nghiệm giao tiếp cho người khuyết tật.  
+
+---
 
 <div align="center">
 
-<p align="center">
-  <img src="images/logo.png" alt="Logo Đại học Đại Nam" width="200"/>
-  <img src="images/AIoTLab_logo.png" alt="Logo AIoTLab" width="170"/>
-</p>
+📝 **Bản quyền**: © 2025 – Phạm Văn Trà, Nhóm CNTT, Khoa Công nghệ Thông tin, Đại học Đại Nam.  
+👩‍🏫 **GV hướng dẫn**: Lê Diệu Anh.  
 
 </div>
-
-<h3 align="center">🔬 Công nghệ AI hỗ trợ giao tiếp cho người khuyết tật thông qua nhận dạng cử chỉ tay</h3>
-
-<p align="center">
-  <strong>Hệ thống nhận diện cử chỉ tay tiếng Việt thời gian thực sử dụng Mediapipe và LSTM</strong>
-</p>
-
----
-
-## 🏗️ Kiến trúc hệ thống
-
-<p align="center">
-  
-  ![image](https://github.com/user-attachments/assets/1144a93e-ac5b-4e27-9446-c1072cb4b44a)
-</p>
-
-Hệ thống được thiết kế với kiến trúc ba tầng chính:
-
-1. **📹 Tầng đầu vào**: Thu nhận dữ liệu từ webcam hoặc video, trích xuất 1662 điểm đặc trưng (pose, face, hand) bằng **MediaPipe Holistic**.  
-2. **🧠 Tầng mô hình**: Xử lý chuỗi 30 khung hình bằng mạng **LSTM nhiều lớp**.  
-3. **🔊 Tầng đầu ra**: Hiển thị nhãn dự đoán trên màn hình và cung cấp phản hồi trực quan/âm thanh nếu độ tin cậy vượt ngưỡng (ví dụ: ≥ 0.8).  
-
----
-
-## ✨ Tính năng nổi bật
-
-- **Mô hình LSTM** tối ưu cho chuỗi thời gian, đạt độ chính xác cao.  
-- **Nhận diện thời gian thực**, với tốc độ xử lý trung bình 20–30 FPS.  
-- **Phát hiện hành động ổn định**, hạn chế nhiễu và sai sót khi người dùng thực hiện nhanh.  
-- **Phản hồi trực quan và âm thanh**, giúp hỗ trợ giao tiếp hiệu quả.  
-- **Nhận diện bộ cử chỉ tiếng Việt** gồm: “Xin chào”, “Cảm ơn”, “Xin lỗi”, “Tạm biệt”, “Hạnh phúc”, “Tuyệt vời”, “Yêu thương”, “Biết ơn”, “Ghét”, cùng nhãn “null”.  
-
----
-
-## 🔧 Công nghệ sử dụng
-
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=yellow)](https://www.python.org/)  
-[![Mediapipe](https://img.shields.io/badge/Mediapipe-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://mediapipe.dev/)  
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)  
-[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)  
-
----
-
-## 📥 Cài đặt
-
-### 🛠️ Yêu cầu hệ thống
-- **Python** `3.8+`  
-- **Webcam** (khuyến nghị 1280x720)  
-- **RAM** `4GB+`  
-- **CPU** `2+ nhân`  
-- **Dung lượng lưu trữ** `2GB+`  
-
-### ⚙️ Hướng dẫn cài đặt
-1. **Tải mã nguồn**
-   ```bash
-   git clone https://github.com/ten-cua-ban/gesture-recognition
-   cd gesture-recognition
