@@ -54,26 +54,42 @@ Quy trình hoạt động của hệ thống nhận dạng cử chỉ tay đư�
 
 ## 📊 Kết quả thử nghiệm  
 
-- **Độ chính xác**: trung bình đạt **90%** trên tập kiểm tra.  
-- **Thời gian suy luận**: khoảng **30ms mỗi khung hình**, đủ nhanh cho nhận diện thời gian thực.  
-- **Tốc độ hoạt động**: duy trì **20–33 FPS** trên webcam chuẩn 1280x720.  
-- **Các lỗi thường gặp**: nhầm lẫn giữa cử chỉ tương tự, hoặc khi ánh sáng yếu.  
-- **Nhận xét**: hệ thống đã chứng minh tính khả thi và có tiềm năng triển khai thực tế để hỗ trợ cộng đồng người khuyết tật.  
+<img src="anh/KQ.jpg" alt="Kết quả thử nghiệm" width="700"/>
+
+- Hệ thống đã nhận diện được cử chỉ tay và đưa ra nhãn dự đoán tương ứng, ví dụ như
+cử chỉ “BÁNH TRÁNG”.
+- Cùng với nhãn dự đoán, hệ thống cung cấp thêm giá trị độ tin cậy (confidence score).
+Trong ví dụ trên, độ tin cậy đạt 0.10, cho thấy mô hình vẫn còn hạn chế trong việc
+phân biệt rõ ràng các cử chỉ có hình dạng tương tự nhau hoặc khi điều kiện môi trường
+chưa tối ưu.
+- Ảnh minh họa cho thấy toàn bộ các keypoints (các điểm đặc trưng trên khuôn mặt và
+bàn tay) được phát hiện và hiển thị trực tiếp. Đây là cơ sở để mô hình phân tích và
+đưa ra kết quả dự đoán.
+- Kết quả thử nghiệm cũng chứng minh rằng hệ thống hoạt động theo thời gian thực:
+ngay khi người dùng thực hiện cử chỉ trước camera, kết quả nhận dạng và độ tin cậy
+được hiển thị ngay lập tức trên màn hình.
+- Mặc dù trong một số trường hợp độ chính xác còn thấp, nhưng hệ thống đã chứng
+minh khả năng hoạt động ổn định, có tiềm năng cải thiện thêm khi mở rộng dữ liệu
+huấn luyện và tối ưu kiến trúc mô hình.
 
 ---
 
-## ⚠️ Hạn chế và hướng phát triển  
+## Nhận xét và đánh giá chương trình
+- **Ưu điểm**:
+  - Hệ thống có khả năng phát hiện và hiển thị chính xác các điểm đặc trưng (keypoints) trên khuôn mặt và bàn tay của người dùng theo thời gian thực. Đây là nền tảng quan trọng để mô hình phân tích và nhận dạng cử chỉ.
+  - Kết quả nhận dạng được hiển thị ngay trên giao diện với cả tên cử chỉ và độ tin cậy, giúp người dùng dễ dàng theo dõi và đánh giá.
+  - Quy trình hoạt động mượt mà, tốc độ xử lý nhanh, đáp ứng yêu cầu về tính tức thời của một hệ thống giao tiếp hỗ trợ người khuyết tật.
 
 - **Hạn chế**:  
-  - Chỉ nhận diện được các cử chỉ đã huấn luyện.  
-  - Độ chính xác giảm khi môi trường ánh sáng không tốt hoặc cử chỉ được thực hiện quá nhanh.  
-  - Chưa hỗ trợ bộ dữ liệu ngôn ngữ ký hiệu đầy đủ.  
+  - Độ tin cậy trong ví dụ thử nghiệm chỉ đạt 0.10, phản ánh rằng mô hình còn gặp khó khăn trong việc phân biệt chính xác các cử chỉ khi dữ liệu huấn luyện chưa đủ phong phú.  
+  - Môi trường thử nghiệm (ánh sáng, phông nền, vị trí camera) có thể ảnh hưởng đến độ chính xác. Khi ánh sáng yếu hoặc có nhiều vật thể gây nhiễu, hệ thống dễ nhận diện nhầm.  
+  - Một số cử chỉ có hình dạng tương đối giống nhau dẫn đến việc mô hình khó phân biệt, đặc biệt khi người dùng thực hiện cử chỉ quá nhanh hoặc không chuẩn xác.  
 
 - **Hướng phát triển**:  
-  - **Mở rộng bộ dữ liệu**: thu thập thêm dữ liệu từ nhiều người, nhiều góc quay, đa dạng điều kiện môi trường.  
-  - **Tối ưu mô hình**: áp dụng *pruning*, *quantization* để tăng tốc độ trên thiết bị di động.  
-  - **Tích hợp giọng nói tự nhiên** thay vì phát âm thanh thô để giao tiếp gần gũi hơn.  
-  - **Ứng dụng di động**: xây dựng phiên bản chạy trực tiếp trên smartphone, giúp người khuyết tật sử dụng mọi lúc mọi nơi.  
+  - **Mở rộng và đa dạng hóa dữ liệu huấn luyện**: Hiện tại, dữ liệu được lấy từ bộ QiPedC và thu thập trực tiếp. Tuy nhiên, để mô hình học được nhiều biến thể hơn, cần bổ sung dữ liệu từ nhiều nguồn khác nhau, với sự đa dạng về người dùng (tuổi, giới tính, kích thước bàn tay), môi trường (ánh sáng, nền), và tốc độ thực hiện cử chỉ  
+  - **Sử dụng các mô hình tiên tiến hơn**: Ngoài LSTM, có thể thử nghiệm các kiến trúc hiện đại như GRU, Transformer, hoặc CNN-LSTM hybrid. Những mô hình này có khả năng học đặc trưng tốt hơn, tăng độ chính xác và giảm thời gian huấn luyện.  
+  - **Tối ưu hóa thời gian thực**: Áp dụng các kỹ thuật như model quantization, pruning, hoặc sử dụng TensorRT để rút ngắn thời gian suy luận, giúp hệ thống hoạt động mượt mà hơn trên các thiết bị có cấu hình thấp (như máy tính bảng, điện thoại).  
+  - **Tích hợp ứng dụng thực tế**: Hệ thống có thể được mở rộng thành một công cụ hỗ trợ giao tiếp trực tiếp giữa người khuyết tật và cộng đồng, ví dụ như: chuyển đổi cử chỉ thành giọng nói, tích hợp vào các ứng dụng chat, hoặc áp dụng trong lớp học/hội thảo để hỗ trợ giảng dạy.  
 
 ---
 
