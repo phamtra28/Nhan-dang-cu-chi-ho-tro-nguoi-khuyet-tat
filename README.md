@@ -8,7 +8,7 @@
 
 ### 🔬 Ứng dụng trí tuệ nhân tạo trong giao tiếp hỗ trợ người khuyết tật thông qua nhận dạng cử chỉ 
 
-**Hệ thống nhận diện ngôn ngữ ký hiệu tiếng Việt thời gian thực sử dụng Mediapipe và LSTM**  
+**Hệ thống nhận diện ngôn ngữ ký hiệu thời gian thực sử dụng Mediapipe và LSTM**  
 
 </div>
 
