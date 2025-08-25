@@ -54,7 +54,7 @@ Quy trình hoạt động của hệ thống nhận dạng cử chỉ tay đư�
 
 ## 📊 Kết quả thử nghiệm  
 
-<img src="anh/KQ.jpg" alt="Kết quả thử nghiệm" width="800"/>
+<img src="anh/ThuNghiem.png" alt="Kết quả thử nghiệm" width="800"/>
 
 - Hệ thống đã nhận diện được cử chỉ tay và đưa ra nhãn dự đoán tương ứng, ví dụ như cử chỉ “BÁNH TRÁNG”.
 - Cùng với nhãn dự đoán, hệ thống cung cấp thêm giá trị độ tin cậy (confidence score). Trong ví dụ trên, độ tin cậy đạt 0.10, cho thấy mô hình vẫn còn hạn chế trong việc phân biệt rõ ràng các cử chỉ có hình dạng tương tự nhau hoặc khi điều kiện môi trường chưa tối ưu.
