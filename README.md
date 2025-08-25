@@ -56,25 +56,23 @@ Quy trình hoạt động của hệ thống nhận dạng cử chỉ tay đư�
 
 <img src="anh/ThuNghiem.png" alt="Kết quả thử nghiệm" width="800"/>
 
-- Hệ thống đã nhận diện được cử chỉ tay và đưa ra nhãn dự đoán tương ứng, ví dụ như cử chỉ “BÁNH TRÁNG”.
-- Cùng với nhãn dự đoán, hệ thống cung cấp thêm giá trị độ tin cậy (confidence score). Trong ví dụ trên, độ tin cậy đạt 0.10, cho thấy mô hình vẫn còn hạn chế trong việc phân biệt rõ ràng các cử chỉ có hình dạng tương tự nhau hoặc khi điều kiện môi trường chưa tối ưu.
+- Hệ thống đã nhận diện được cử chỉ tay và đưa ra nhãn dự đoán tương ứng, ví dụ như cử chỉ “CỰC KHỔ”.
+- Cùng với nhãn dự đoán, hệ thống cung cấp thêm giá trị độ tin cậy (confidence score). Trong ví dụ trên, độ tin cậy đạt 0.57, cho thấy mô hình đã có khả năng phân biệt cử chỉ ở mức trung bình nhưng vẫn cần được cải thiện thêm để đạt độ chính xác cao hơn.
 - Ảnh minh họa cho thấy toàn bộ các keypoints (các điểm đặc trưng trên khuôn mặt và bàn tay) được phát hiện và hiển thị trực tiếp. Đây là cơ sở để mô hình phân tích và đưa ra kết quả dự đoán.
-- Kết quả thử nghiệm cũng chứng minh rằng hệ thống hoạt động theo thời gian thực: ngay khi người dùng thực hiện cử chỉ trước camera, kết quả nhận dạng và độ tin cậy được hiển thị ngay lập tức trên màn hình.
-- Mặc dù trong một số trường hợp độ chính xác còn thấp, nhưng hệ thống đã chứng minh khả năng hoạt động ổn định, có tiềm năng cải thiện thêm khi mở rộng dữ liệu huấn luyện và tối ưu kiến trúc mô hình.
+- Kết quả thử nghiệm chứng minh rằng hệ thống hoạt động theo thời gian thực: ngay khi người dùng thực hiện cử chỉ trước camera, kết quả nhận dạng và độ tin cậy được hiển thị ngay lập tức trên giao diện.
+- Với độ tin cậy ở mức 0.57, hệ thống cho thấy khả năng hoạt động ổn định và có tiềm năng nâng cao độ chính xác hơn nữa nếu được bổ sung thêm dữ liệu huấn luyện và tối ưu mô hình.
 
 ---
 
 ## Nhận xét và đánh giá chương trình
 - **Ưu điểm**:
-  - Hệ thống có khả năng phát hiện và hiển thị chính xác các điểm đặc trưng (keypoints) trên khuôn mặt và bàn tay của người dùng theo thời gian thực. Đây là nền tảng quan trọng để mô hình phân tích và nhận dạng cử chỉ.
-  - Kết quả nhận dạng được hiển thị ngay trên giao diện với cả tên cử chỉ và độ tin cậy, giúp người dùng dễ dàng theo dõi và đánh giá.
-  - Quy trình hoạt động mượt mà, tốc độ xử lý nhanh, đáp ứng yêu cầu về tính tức thời của một hệ thống giao tiếp hỗ trợ người khuyết tật.
-
+  - Hệ thống có khả năng phát hiện và hiển thị chính xác các điểm đặc trưng (keypoints) trên khuôn mặt, bàn tay và cánh tay của người dùng theo thời gian thực. Đây là nền tảng quan trọng để mô hình phân tích và nhận dạng cử chỉ.
+  - Kết quả nhận dạng được hiển thị trực tiếp trên giao diện với cả nhãn cử chỉ và độ tin cậy, giúp người dùng dễ dàng quan sát và đánh giá.
+  - Quy trình hoạt động ổn định, tốc độ xử lý nhanh, đáp ứng tốt yêu cầu về tính tức thời của một hệ thống hỗ trợ giao tiếp cho người khuyết tật.
 - **Hạn chế**:  
-  - Độ tin cậy trong ví dụ thử nghiệm chỉ đạt 0.10, phản ánh rằng mô hình còn gặp khó khăn trong việc phân biệt chính xác các cử chỉ khi dữ liệu huấn luyện chưa đủ phong phú.  
-  - Môi trường thử nghiệm (ánh sáng, phông nền, vị trí camera) có thể ảnh hưởng đến độ chính xác. Khi ánh sáng yếu hoặc có nhiều vật thể gây nhiễu, hệ thống dễ nhận diện nhầm.  
-  - Một số cử chỉ có hình dạng tương đối giống nhau dẫn đến việc mô hình khó phân biệt, đặc biệt khi người dùng thực hiện cử chỉ quá nhanh hoặc không chuẩn xác.  
-
+  - Độ tin cậy trong ví dụ thử nghiệm chỉ đạt 0.57, phản ánh rằng mô hình vẫn còn hạn chế trong việc phân biệt rõ ràng các cử chỉ khi dữ liệu huấn luyện chưa đủ đa dạng.  
+  - Điều kiện môi trường (ánh sáng, phông nền, góc quay camera) có thể ảnh hưởng đến kết quả nhận dạng. Khi ánh sáng yếu hoặc có nhiều yếu tố gây nhiễu, hệ thống dễ đưa ra dự đoán sai.  
+  - Một số cử chỉ có hình dáng tương đồng khiến mô hình khó phân biệt chính xác, đặc biệt khi người dùng thực hiện cử chỉ nhanh, thiếu rõ ràng hoặc không đúng chuẩn.  
 - **Hướng phát triển**:  
   - **Mở rộng và đa dạng hóa dữ liệu huấn luyện**: Hiện tại, dữ liệu được lấy từ bộ QiPedC và thu thập trực tiếp. Tuy nhiên, để mô hình học được nhiều biến thể hơn, cần bổ sung dữ liệu từ nhiều nguồn khác nhau, với sự đa dạng về người dùng (tuổi, giới tính, kích thước bàn tay), môi trường (ánh sáng, nền), và tốc độ thực hiện cử chỉ  
   - **Sử dụng các mô hình tiên tiến hơn**: Ngoài LSTM, có thể thử nghiệm các kiến trúc hiện đại như GRU, Transformer, hoặc CNN-LSTM hybrid. Những mô hình này có khả năng học đặc trưng tốt hơn, tăng độ chính xác và giảm thời gian huấn luyện.  
